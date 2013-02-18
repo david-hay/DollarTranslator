@@ -17,3 +17,4 @@
 *.iws
 .DS_Store
 *.log
+/stacktrace.log
