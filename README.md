@@ -8,12 +8,12 @@ the project instructions:
         to "Two thousand five hundred twenty-three and 04/100 dollars"
 
 
-I went ahead and made the solution a Grails application, to allow a simple web page
-to be created.  Please note that Grails 2.0.3 is required - it can be downloaded from:
+I went ahead and made the solution a Grails application, to allow it to be driven by
+a simple web front end.  Please note that Grails 2.0.3 is required - it can be downloaded from:
 
     http://dist.springframework.org.s3.amazonaws.com/release/GRAILS/grails-2.0.3.zip
 
-The application can be access by running the following on the command line:
+The application can be accessed by running the following on the command line:
 
     grails run-app
 
@@ -28,9 +28,7 @@ the command line, using:
     grails test-app
 
 It was a fun little project, and most edge cases were covered.  Whole dollars up to 21 characters
-are translated (999 quintillion), negatives are rejected, zero is handled, error input is caught 
+are translated (999 quintillion), negatives are rejected, zero is handled, erroneous input is caught 
 and messaged appropriately.
-
-Sincerely,
 
 David J Hay
