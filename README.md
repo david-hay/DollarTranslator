@@ -28,7 +28,8 @@ the command line, using:
     grails test-app
 
 It was a fun little project, and most edge cases were covered.  Whole dollars up to 21 characters
-are translated (999 quintillion), negatives are rejected, zero is handled.
+are translated (999 quintillion), negatives are rejected, zero is handled, error input is caught 
+and messaged appropriately.
 
 Sincerely,
 
