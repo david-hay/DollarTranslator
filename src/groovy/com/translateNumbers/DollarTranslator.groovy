@@ -22,7 +22,7 @@ class DollarTranslator {
 
 
     /**
-     * This class is not supposed to be instantiated - it has not state.
+     * This class is not supposed to be instantiated - it has no state.
      *
      * Groovy doesn't quite prevent this, but at least it communicates our intent.
      */
@@ -111,7 +111,8 @@ class DollarTranslator {
      *    eg 2,523.04 will return "Two thousand five hundred twenty-three"
      *
      * All commas should have been remove before calling this method,
-     * and the String should be a not-null whole integer.
+     * and the String should be a not-null whole number with max length of
+     * 21.
      *
      * @param dollarPart
      * @return
@@ -137,7 +138,7 @@ class DollarTranslator {
         for (i in (0..len-1).step(3)) {
             String s = translateTriplet(padded[i..i+2], UNITS[unitsIndex--])
             if (s) {
-                translation += (i > 0 ? ' ' + s : s)
+                translation += (i > 0 ? ' ' + s : s)        //if not the first one, add with leading space
             }
         }
 
@@ -146,7 +147,7 @@ class DollarTranslator {
 
     /**
      * Utility method to translate a string of length 3 into the
-     * equivalent wording, including the unit passed to it
+     * equivalent wording, including the unit passed to it.
      *
      * eg (135, Thousand) => one hundred thirty-five Thousand
      *
@@ -167,7 +168,7 @@ class DollarTranslator {
             return ''
         }
 
-        //divide into hundreds and 1-99
+        //divide into hundreds and 0-99
         int hundreds = s[0].toInteger()
         int n = s[1..2].toInteger()
 
@@ -222,12 +223,12 @@ class DollarTranslator {
     }
 
     /**
-     * Translate a String representing the amount in cents, into words.
+     * Translate a String representing the amount in cents, into a fraction.
      *
      * Translation will be in the form of 24/100
      *
      * @param centPart      String holding numerical amount of cents to translate
-     * @return              String holding equivalent in words
+     * @return              String holding equivalent as a fraction.
      */
     private static String translateCents(String centPart) {
 
